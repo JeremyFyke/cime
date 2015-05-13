@@ -1387,6 +1387,27 @@ module seq_flds_mod
 	units    = 'deg C'
 	attname  = 'So_td' // cnum
 	call metadata_set(attname, longname, stdname, units) 
+	
+        write(cnum,'(i2.2)') num
+	name = 'So_ud' // cnum
+	call seq_flds_add(o2x_states,trim(name))
+	call seq_flds_add(x2i_states,trim(name))
+	longname = 'Subsurface ocean u velocity ' // cnum 
+	stdname  = 'subsurface_u_velocity'
+	units    = 'm/s'
+	attname  = 'So_ud' // cnum
+	call metadata_set(attname, longname, stdname, units) 	
+	
+        write(cnum,'(i2.2)') num
+	name = 'So_vd' // cnum
+	call seq_flds_add(o2x_states,trim(name))
+	call seq_flds_add(x2i_states,trim(name))
+	longname = 'Subsurface ocean v velocity ' // cnum 
+	stdname  = 'subsurface_v_velocity'
+	units    = 'm/s'
+	attname  = 'So_vd' // cnum
+	call metadata_set(attname, longname, stdname, units) 	
+	
      enddo
 
      !-----------------------------
