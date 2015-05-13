@@ -60,6 +60,10 @@ MODULE shr_const_mod
    real(R8),parameter :: SHR_CONST_SPVAL_TOLMIN = 0.99_R8 * SHR_CONST_SPVAL  ! min spval tolerance
    real(R8),parameter :: SHR_CONST_SPVAL_TOLMAX = 1.01_R8 * SHR_CONST_SPVAL  ! max spval tolerance
 
+
+   integer, parameter :: ib_nec = 10  !Number of subsurface temperature levels to use for iceberg coupling
+   real(R8), parameter :: dibd = 5000.0_R8 !Dz for above subsurface temperature levels (cm)
+
 contains
 
 !-----------------------------------------------------------------------------

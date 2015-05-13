@@ -123,6 +123,7 @@ module seq_flds_mod
  
    use shr_kind_mod,   only : CX => shr_kind_CX, CXX => shr_kind_CXX
    use shr_sys_mod,    only : shr_sys_abort
+   use shr_const_mod,  only : ib_nec
    use seq_drydep_mod, only : seq_drydep_init, seq_drydep_read, lnd_drydep
    use seq_comm_mct,   only : seq_comm_iamroot, seq_comm_setptrs, logunit
    use shr_megan_mod,  only : shr_megan_readnl, shr_megan_mechcomps_n
@@ -1375,6 +1376,18 @@ module seq_flds_mod
      units    = 'm'
      attname  = 'So_bldepth'
      call metadata_set(attname, longname, stdname, units)
+
+     do num = 1,ib_nec
+        write(cnum,'(i2.2)') num
+	name = 'So_td' // cnum
+	call seq_flds_add(o2x_states,trim(name))
+	call seq_flds_add(x2i_states,trim(name))
+	longname = 'Subsurface ocean temperature ' // cnum 
+	stdname  = 'subsurface_temperature'
+	units    = 'deg C'
+	attname  = 'So_td' // cnum
+	call metadata_set(attname, longname, stdname, units) 
+     enddo
 
      !-----------------------------
      ! lnd->rof exchange
