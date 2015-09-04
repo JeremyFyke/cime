@@ -160,7 +160,7 @@ contains
              write(logunit,*) ' '
              write(logunit,F00) 'Initializing mapper_Rg2i'
           end if
-          call seq_map_init_rcfile(mapper_Rg2i, glc(1), ocn(1), &
+          call seq_map_init_rcfile(mapper_Rg2i, glc(1), ice(1), &
                'seq_maps.rc','glc2ice_rmapname:','glc2ice_rmaptype:',samegrid_ig, &
                'mapper_Rg2i initialization', esmf_map_flag)
        endif
@@ -443,7 +443,8 @@ contains
     call t_drvstartf (trim(timer),barrier=mpicom_CPLID)
     do egi = 1,num_inst_glc
        g2x_gx => component_get_c2x_cx(glc(egi))
-       call seq_map_map(mapper_Rg2i, g2x_gx, g2x_ix(egi), norm=.true.)
+       call seq_map_map(mapper_Rg2i, g2x_gx, g2x_ix(egi), &
+                        fldlist='Figg_rofi',norm=.true.)
     enddo
     call t_drvstopf  (trim(timer))
 

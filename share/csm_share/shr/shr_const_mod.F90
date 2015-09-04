@@ -62,7 +62,7 @@ MODULE shr_const_mod
 
 
    integer, parameter :: ib_nec = 10  !Number of subsurface temperature levels to use for iceberg coupling
-   real(R8), parameter :: dibd = 5000.0_R8 !Dz for above subsurface temperature levels (cm)
+   real(R8), parameter :: dibd = 5000.0_R8 !Dz for the ib_nec subsurface temperature levels (cm)
 
 contains
 
